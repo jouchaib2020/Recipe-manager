@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = ' http://localhost:3001/v1/';
+const BASE_URL = ' http://localhost:3000/v1/';
 
 // Fonction pour obtenir toutes les recettes
 export async function getRecipes() {

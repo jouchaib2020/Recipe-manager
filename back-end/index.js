@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');                          
 const cors = require('cors');
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 const recipeDao = require('./dao-recipes'); // module for accessing the recipes table in the DB
@@ -11,10 +13,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3001', 'http://localhost'],
   credentials: true,
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 
@@ -132,5 +134,5 @@ app.get('/v1/transformData', (req, res) => {
   }
 );
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, ()=>console.log(`Server running on http://localhost:${PORT}/`));
