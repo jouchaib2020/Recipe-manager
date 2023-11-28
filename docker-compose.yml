@@ -17,5 +17,5 @@ services:
   db:
     image: busybox:latest
     volumes:
-      - ./back:/usr/src/app  # Mount the entire backend folder
+      - ./back-end:/usr/src/app  # Mount the entire backend folder
     command: tail -f /dev/null  # Keep the container running
